@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testador de AFDs com Visualização</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Testador de AFDs com Visualização</h1>
+        
+        <div class="afd-diagrams">
+            <div class="diagram">
+                <h3>AFD (a): {0,1}* onde cada 1 é seguido por 00</h3>
+                <svg width="400" height="200" viewBox="0 0 400 200">
+                    <!-- Código SVG do diagrama do AFD (a) -->
+                    <circle cx="100" cy="100" r="30" class="state" id="q0-a"/>
+                    <circle cx="100" cy="100" r="25" class="state-inner"/>
+                    <text x="100" y="105" class="state-label">q0</text>
+                    
+                    <circle cx="250" cy="100" r="30" class="state" id="q1-a"/>
+                    <text x="250" y="105" class="state-label">q1</text>
+                    
+                    <circle cx="350" cy="100" r="30" class="state" id="q2-a"/>
+                    <text x="350" y="105" class="state-label">q2</text>
+                    
+                    <circle cx="450" cy="100" r="30" class="state error" id="q3-a" style="display:none"/>
+                    <text x="450" y="105" class="state-label">q3 (erro)</text>
+                    
+                    <!-- Transições -->
+                    <path d="M70,100 Q65,70 100,70 Q135,70 130,100" class="transition"/>
+                    <text x="100" y="60" class="transition-label">0</text>
+                    
+                    <path d="M130,100 Q135,130 100,130 Q65,130 70,100" class="transition"/>
+                    <text x="100" y="150" class="transition-label">0</text>
+                    
+                    <path d="M280,100 Q310,100 320,100" class="transition"/>
+                    <text x="300" y="90" class="transition-label">0</text>
+                    
+                    <path d="M380,100 Q410,100 420,100" class="transition"/>
+                    <text x="400" y="90" class="transition-label">0</text>
+                    
+                    <path d="M100,70 Q175,30 250,70" class="transition"/>
+                    <text x="175" y="50" class="transition-label">1</text>
+                </svg>
+            </div>
+            
+            <div class="diagram">
+                <h3>AFD (b): {a,b}* com último b e #a par</h3>
+                <svg width="500" height="300" viewBox="0 0 500 300">
+                    <!-- Código SVG do diagrama do AFD (b) -->
+                    <!-- Estados q0_par, q0_impar, q1_par, q1_impar -->
+                    <!-- Incluir todas as transições -->
+                </svg>
+            </div>
+        </div>
+        
+        <div class="input-section">
+            <input type="text" id="cadeia" placeholder="Digite a cadeia...">
+            <div class="buttons">
+                <button onclick="testarAFD('a')">Testar AFD ({0,1}*)</button>
+                <button onclick="testarAFD('b')">Testar AFD ({a,b}*)</button>
+            </div>
+        </div>
+        
+        <div class="execution-log" id="executionLog">
+            <h3>Passo a Passo da Execução:</h3>
+            <div id="steps"></div>
+        </div>
+        
+        <div class="result" id="resultado"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
